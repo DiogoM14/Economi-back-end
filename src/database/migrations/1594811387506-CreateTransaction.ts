@@ -15,6 +15,10 @@ export default class CreateTransaction1594811387506
             default: 'uuid_generate_v4()',
           },
           {
+            name: 'user',
+            type: 'varchar',
+          },
+          {
             name: 'title',
             type: 'varchar',
           },

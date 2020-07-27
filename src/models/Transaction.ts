@@ -9,11 +9,19 @@ import {
 } from 'typeorm';
 
 import Category from './Category';
+import User from './User';
 
 @Entity('transactions')
 class Transaction {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+
+  @Column()
+  user_id: string;
+
+  @ManyToOne(() => User, { eager: true })
+  @JoinColumn({ name: 'user_id' })
+  user: User;
 
   @Column()
   title: string;
