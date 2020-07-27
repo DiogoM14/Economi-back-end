@@ -11,8 +11,10 @@
     "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {
+    "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.6",
     "@types/csv-parse": "^1.2.2",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "csv-parse": "^4.8.8",
     "date-fns": "^2.14.0",
