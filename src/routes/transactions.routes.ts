@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import multer from 'multer';
 
 import { getCustomRepository } from 'typeorm';
 
@@ -30,6 +29,7 @@ transactionsRouter.post('/', async (request, response) => {
     type,
     category,
   });
+
   return response.json(transaction);
 });
 

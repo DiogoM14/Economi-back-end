@@ -1,10 +1,8 @@
-// import AppError from '../errors/AppError';
-
 import { getCustomRepository, getRepository } from 'typeorm';
 
-import TransactionsRepository from '../repositories/TransactionsRepository';
+// import AppError from '../errors/AppError';
 
-import UsersRepository from '../repositories/UsersRepository';
+import TransactionsRepository from '../repositories/TransactionsRepository';
 
 import Transaction from '../models/Transaction';
 
@@ -47,10 +45,6 @@ class CreateTransactionService {
 
       await categoryRepository.save(transactionCategory);
     }
-
-    // if (!transactionUser) {
-    //   throw new Error('User is not created.');
-    // }
 
     const transaction = transactionsRepository.create({
       user_id: String(transactionUser?.id),
