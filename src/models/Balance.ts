@@ -9,28 +9,28 @@ import {
 } from 'typeorm';
 
 import Transaction from './Transaction';
-import Balance from './Balance';
+import User from './User';
 
-@Entity('users')
-class User {
+@Entity('balances')
+class Balance {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @OneToMany(() => Transaction, transaction => transaction.user)
-  user: Transaction;
+  @OneToMany(() => Transaction, transaction => transaction.balance)
+  transaction: Transaction;
 
-  @OneToMany(() => Balance, balance => balance.user)
+  @OneToMany(() => User, user => user.balance)
   @JoinColumn({ name: 'balance' })
-  balance: Balance;
+  user: User;
 
   @Column()
-  name: string;
+  income: string;
 
   @Column()
-  email: string;
+  outcome: string;
 
   @Column()
-  password: string;
+  total: string;
 
   @CreateDateColumn()
   created_at: Date;
@@ -39,4 +39,4 @@ class User {
   updated_at: Date;
 }
 
-export default User;
+export default Balance;

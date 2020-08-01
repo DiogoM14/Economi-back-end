@@ -17,9 +17,6 @@ class Category {
   @OneToMany(() => Transaction, transaction => transaction.category)
   transaction: Transaction;
 
-  // @Column()
-  // category_id: number;
-
   @Column()
   title: string;
 

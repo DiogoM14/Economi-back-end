@@ -10,6 +10,7 @@ import {
 
 import Category from './Category';
 import User from './User';
+import Balance from './Balance';
 
 @Entity('transactions')
 class Transaction {
@@ -24,6 +25,9 @@ class Transaction {
   user: User;
 
   @Column()
+  balance_id: string;
+
+  @Column()
   title: string;
 
   @Column('decimal')
@@ -31,6 +35,10 @@ class Transaction {
 
   @Column()
   type: 'income' | 'outcome';
+
+  @ManyToOne(() => Balance, balance => balance.transaction, { eager: true })
+  @JoinColumn({ name: 'balance_id' })
+  balance: Balance;
 
   @ManyToOne(() => Category, category => category.transaction, { eager: true })
   @JoinColumn({ name: 'category_id' })
